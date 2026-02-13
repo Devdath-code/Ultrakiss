@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dr1d3c0nd76pk"]
+
+[ext_resource type="Script" uid="uid://gmns4ehirunw" path="res://Scripts/PlayerController.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://o0504oq5tnj2" path="res://Art/Player_placeholderpng.png" id="2_kyqiw"]
+
+[sub_resource type="Curve" id="Curve_kyqiw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7840909, 0.5973155), 0.0, 0.0, 0, 0, Vector2(1, 0.41834456), -0.8689346, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
+size = Vector2(83, 72)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2137524130]
+script = ExtResource("1_kyqiw")
+WALLJUMP_VEL = 50.0
+dash_curve = SubResource("Curve_kyqiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1739747761]
+texture = ExtResource("2_kyqiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1657856047]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_kpjcp")
