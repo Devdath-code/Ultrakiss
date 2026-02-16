@@ -1,40 +1,62 @@
-[gd_scene format=3 uid="uid://dgwfvvn3yre0d"]
+[gd_scene format=3 uid="uid://bde3xtduhfr8s"]
 
 [ext_resource type="Script" uid="uid://b51hqgflaymss" path="res://Scripts/enemy.gd" id="1_afpow"]
-[ext_resource type="Texture2D" uid="uid://o0504oq5tnj2" path="res://Art/Player_placeholderpng.png" id="1_hghv2"]
 [ext_resource type="Script" uid="uid://dtryl30eq5cca" path="res://Scripts/Hurtbox.gd" id="2_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://wqp6qpoief46" path="res://Art/hammer.png" id="2_0830c"]
 [ext_resource type="PackedScene" uid="uid://db6splqr54gl6" path="res://Scenes/death_explosion.tscn" id="4_287tu"]
-[ext_resource type="PackedScene" uid="uid://dy7kndof1pir2" path="res://Scenes/enemy_weapon.tscn" id="4_0830c"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_afpow"]
-size = Vector2(84, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_287tu"]
-size = Vector2(84, 73)
+size = Vector2(81, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_287tu"]
+atlas = ExtResource("2_0830c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0830c"]
+atlas = ExtResource("2_0830c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghaa6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_287tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0830c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afpow"]
+size = Vector2(6.9169617, 10.459187)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=264314452]
 script = ExtResource("1_afpow")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=142789520]
-modulate = Color(0.9498957, 0.003072932, 0.001686694, 1)
-texture = ExtResource("1_hghv2")
-
-[node name="Hurtbox" type="Area2D" parent="Sprite2D" unique_id=1019630164]
-collision_mask = 2
-script = ExtResource("2_1f0kj")
-metadata/_custom_type_script = "uid://dtryl30eq5cca"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hurtbox" unique_id=1070321849]
-shape = SubResource("RectangleShape2D_afpow")
-
-[node name="Enemy_weapon" parent="Sprite2D" unique_id=715501605 instance=ExtResource("4_0830c")]
-position = Vector2(22, 23)
-rotation = -0.6733564
-scale = Vector2(0.9658274, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=34719397]
-position = Vector2(0, -0.5)
+position = Vector2(-29.5, -21.5)
 shape = SubResource("RectangleShape2D_287tu")
 
 [node name="Death_explosion" parent="." unique_id=1494092447 instance=ExtResource("4_287tu")]
 position = Vector2(-1, -2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=671714017]
+position = Vector2(-31.499998, -31.499998)
+scale = Vector2(2.96875, 2.96875)
+sprite_frames = SubResource("SpriteFrames_ghaa6")
+autoplay = "default"
+
+[node name="Hurtbox" type="Area2D" parent="AnimatedSprite2D" unique_id=1019630164]
+position = Vector2(-51, -59.160007)
+scale = Vector2(3.9199996, 3.9199991)
+collision_mask = 2
+script = ExtResource("2_1f0kj")
+metadata/_custom_type_script = "uid://dtryl30eq5cca"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Hurtbox" unique_id=1070321849]
+position = Vector2(13.152361, 15.984699)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_afpow")
