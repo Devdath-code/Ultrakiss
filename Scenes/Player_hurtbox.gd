@@ -1,9 +1,9 @@
-class_name Hurtbox
+class_name Player_Hurtbox
 extends Area2D
 
 func init()->void:
 	collision_layer = 0
-	collision_mask = 2
+	collision_mask = 3
 
 
 func _ready() -> void:

@@ -17,10 +17,14 @@ var is_dashing = false
 var dash_start_position = 0
 var dash_direction = 0
 var dash_timer = 0
-
+@onready var animation_player := $AnimatedSprite2D/AnimationPlayer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var weapon_pivot: Node2D = $Weapon_pivot
+@onready var health = 100
+
 
 func _physics_process(delta: float) -> void:
+	hitting()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -46,8 +50,10 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("run")
 		if direction < 0:
 			animated_sprite.flip_h = true
+			weapon_pivot.scale.x = -1
 		else:
 			animated_sprite.flip_h = false
+			weapon_pivot.scale.x = 1
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * deceleration)
 		animated_sprite.play("idle")
@@ -82,3 +88,15 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("idle")
 		
 	move_and_slide()
+	
+func hitting():
+	if Input.is_action_just_pressed("Player_light_attack"):
+		animation_player.play("hit")
+		print("light attack")
+		
+func take_damage(amount:int) -> void:
+	print("Player_Damage:",amount)
+	health = health - amount
+	if health <= 0:
+		print("Game over")
+		queue_free()

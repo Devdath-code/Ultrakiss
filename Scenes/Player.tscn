@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://gmns4ehirunw" path="res://Scripts/PlayerController.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://dxmnh3r123npk" path="res://Art/spritesheet.png" id="3_dewec"]
 [ext_resource type="PackedScene" uid="uid://b3jbpno33j78a" path="res://Scenes/weapon.tscn" id="3_gntrk"]
+[ext_resource type="Script" uid="uid://bsvjc8oefxugy" path="res://Scenes/Player_hurtbox.gd" id="4_dewec"]
 
 [sub_resource type="Curve" id="Curve_kyqiw"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7840909, 0.5973155), 0.0, 0.0, 0, 0, Vector2(1, 0.41834456), -0.8689346, 0.0, 0, 0]
@@ -78,6 +79,70 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_gntrk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon_pivot/Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon_pivot/Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.38111752]
+}
+
+[sub_resource type="Animation" id="Animation_dewec"]
+resource_name = "hit"
+length = 0.46666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon_pivot/Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon_pivot/Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.38111752, 0.52317876, -0.31122005]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ixxa"]
+_data = {
+&"RESET": SubResource("Animation_gntrk"),
+&"hit": SubResource("Animation_dewec")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ixxa"]
+radius = 8.844834
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2137524130]
 script = ExtResource("1_kyqiw")
 WALLJUMP_VEL = 50.0
@@ -87,14 +152,29 @@ dash_curve = SubResource("Curve_kyqiw")
 position = Vector2(-4, 1.5)
 shape = SubResource("RectangleShape2D_kpjcp")
 
-[node name="Weapon" parent="." unique_id=715501605 instance=ExtResource("3_gntrk")]
-position = Vector2(10, 10.000005)
-rotation = -0.5370195
-scale = Vector2(0.515, 0.5149991)
+[node name="Weapon_pivot" type="Node2D" parent="." unique_id=1584352620]
+
+[node name="Weapon" parent="Weapon_pivot" unique_id=715501605 instance=ExtResource("3_gntrk")]
+rotation = -0.38111752
+scale = Vector2(0.65431005, 0.72408915)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1871850564]
 position = Vector2(-5.75, 0.25)
+rotation = 0.0012629926
 scale = Vector2(2.234375, 2.234375)
 sprite_frames = SubResource("SpriteFrames_52ee3")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=326918464]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_5ixxa")
+
+[node name="Player_Hurtbox" type="Area2D" parent="AnimatedSprite2D" unique_id=1400120152]
+collision_mask = 4
+script = ExtResource("4_dewec")
+metadata/_custom_type_script = "uid://dtryl30eq5cca"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Player_Hurtbox" unique_id=1184979388]
+scale = Vector2(1, 1.6979098)
+shape = SubResource("CircleShape2D_5ixxa")
