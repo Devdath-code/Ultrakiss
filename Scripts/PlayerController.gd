@@ -95,7 +95,7 @@ func hitting():
 		print("light attack")
 		
 func take_damage(amount:int) -> void:
-	print("Damage:",amount)
+	print("Player_Damage:",amount)
 	health = health - amount
 	if health <= 0:
 		print("Game over")

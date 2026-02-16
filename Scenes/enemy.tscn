@@ -29,6 +29,7 @@ shape = SubResource("RectangleShape2D_afpow")
 
 [node name="Enemy_weapon" parent="Sprite2D" unique_id=715501605 instance=ExtResource("4_0830c")]
 position = Vector2(22, 23)
+rotation = -0.6733564
 scale = Vector2(0.9658274, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=34719397]
