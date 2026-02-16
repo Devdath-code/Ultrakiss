@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1d3c0nd76pk" path="res://Scenes/Player.tscn" id="2_2b6ht"]
 [ext_resource type="Texture2D" uid="uid://cgon27r8do880" path="res://Art/bck.png" id="2_s2tkr"]
 [ext_resource type="Texture2D" uid="uid://ctvf1i6csqrs1" path="res://Art/placeholder.png" id="2_y0mvb"]
-[ext_resource type="PackedScene" uid="uid://bde3xtduhfr8s" path="res://Scenes/enemy.tscn" id="3_y0mvb"]
+[ext_resource type="PackedScene" uid="uid://dgwfvvn3yre0d" path="res://Scenes/enemy.tscn" id="3_y0mvb"]
 
 [sub_resource type="Environment" id="Environment_y0mvb"]
 background_mode = 3

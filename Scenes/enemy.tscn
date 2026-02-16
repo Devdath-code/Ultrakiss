@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bde3xtduhfr8s"]
+[gd_scene format=3 uid="uid://dgwfvvn3yre0d"]
 
 [ext_resource type="Script" uid="uid://b51hqgflaymss" path="res://Scripts/enemy.gd" id="1_afpow"]
 [ext_resource type="Script" uid="uid://dtryl30eq5cca" path="res://Scripts/Hurtbox.gd" id="2_1f0kj"]
@@ -33,6 +33,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afpow"]
 size = Vector2(6.9169617, 10.459187)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0830c"]
+size = Vector2(83, 38)
+
 [node name="Enemy" type="CharacterBody2D" unique_id=264314452]
 script = ExtResource("1_afpow")
 
@@ -60,3 +63,11 @@ metadata/_custom_type_script = "uid://dtryl30eq5cca"
 position = Vector2(13.152361, 15.984699)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_afpow")
+
+[node name="hit_area" type="Area2D" parent="." unique_id=1252682949]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_area" unique_id=341523282]
+position = Vector2(-20.5, 0)
+shape = SubResource("RectangleShape2D_0830c")
+
+[connection signal="area_entered" from="hit_area" to="." method="_on_hit_area_area_entered"]
