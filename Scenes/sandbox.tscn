@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dr1d3c0nd76pk" path="res://Scenes/Player.tscn" id="2_2b6ht"]
 [ext_resource type="Texture2D" uid="uid://ctvf1i6csqrs1" path="res://Art/placeholder.png" id="2_y0mvb"]
-[ext_resource type="PackedScene" path="res://Scenes/enemy.tscn" id="3_y0mvb"]
+[ext_resource type="PackedScene" uid="uid://dgwfvvn3yre0d" path="res://Scenes/enemy.tscn" id="3_y0mvb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d7bho"]
 texture = ExtResource("2_y0mvb")
@@ -445,7 +445,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Enemy" parent="." unique_id=264314452 instance=ExtResource("3_y0mvb")]
-position = Vector2(979, -44)
+position = Vector2(979, -37)
 
 [node name="Enemy2" parent="." unique_id=1823750943 instance=ExtResource("3_y0mvb")]
-position = Vector2(1322, -22)
+position = Vector2(1182, -37)
