@@ -18,6 +18,8 @@ var dash_start_position = 0
 var dash_direction = 0
 var dash_timer = 0
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -41,8 +43,14 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("Player_left", "player_right")
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED * acceleration)
+		animated_sprite.play("run")
+		if direction < 0:
+			animated_sprite.flip_h = true
+		else:
+			animated_sprite.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * deceleration)
+		animated_sprite.play("idle")
 	# Reset wall jump if we touch a new wall
 # Reset lock when we leave the wall
 	if is_on_floor():
@@ -65,5 +73,12 @@ func _physics_process(delta: float) -> void:
 			
 	if dash_timer > 0:
 		dash_timer -= delta
+		
+	if not is_on_floor():
+		animated_sprite.play("jump")
+	elif direction != 0:
+		animated_sprite.play("run")
+	else:
+		animated_sprite.play("idle")
 		
 	move_and_slide()

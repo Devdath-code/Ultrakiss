@@ -1,25 +1,29 @@
 [gd_scene format=3 uid="uid://b3jbpno33j78a"]
 
-[ext_resource type="Texture2D" uid="uid://ctvf1i6csqrs1" path="res://Art/placeholder.png" id="1_er6cq"]
-[ext_resource type="Script" uid="uid://gtmswdxga2ua" path="res://Scripts/Hitbox.gd" id="2_qv81b"]
+[ext_resource type="Texture2D" uid="uid://dxmnh3r123npk" path="res://Art/spritesheet.png" id="1_qv81b"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="2_qv81b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1ly8"]
+atlas = ExtResource("1_qv81b")
+region = Rect2(138, 64, 12, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qv81b"]
-size = Vector2(332.49973, 261.3021)
+size = Vector2(8.260862, 29.547005)
 
 [node name="Weapon" type="Node2D" unique_id=715501605]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=475319239]
-position = Vector2(3, -1.9999995)
-scale = Vector2(0.48421055, 0.20283021)
-texture = ExtResource("1_er6cq")
+position = Vector2(46.186516, -5.1652966)
+rotation = -1.5707964
+scale = Vector2(3.058664, 3.2068226)
+texture = SubResource("AtlasTexture_e1ly8")
 
 [node name="Hitbox" type="Area2D" parent="Sprite2D" unique_id=1327303765]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("2_qv81b")
-metadata/_custom_type_script = "uid://gtmswdxga2ua"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hitbox" unique_id=1509743805]
-position = Vector2(52.663063, -2.4651232)
+position = Vector2(0.25328064, 0.9849043)
 scale = Vector2(1.000001, 1.000001)
 shape = SubResource("RectangleShape2D_qv81b")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dr1d3c0nd76pk"]
 
 [ext_resource type="Script" uid="uid://gmns4ehirunw" path="res://Scripts/PlayerController.gd" id="1_kyqiw"]
-[ext_resource type="Texture2D" uid="uid://o0504oq5tnj2" path="res://Art/Player_placeholderpng.png" id="2_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://dxmnh3r123npk" path="res://Art/spritesheet.png" id="3_dewec"]
 [ext_resource type="PackedScene" uid="uid://b3jbpno33j78a" path="res://Scenes/weapon.tscn" id="3_gntrk"]
 
 [sub_resource type="Curve" id="Curve_kyqiw"]
@@ -9,21 +9,92 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7840909, 0.5973155), 0.0, 0.0,
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
-size = Vector2(83, 72)
+size = Vector2(28, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ixxa"]
+atlas = ExtResource("3_dewec")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn08x"]
+atlas = ExtResource("3_dewec")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_megsn"]
+atlas = ExtResource("3_dewec")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
+atlas = ExtResource("3_dewec")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dewec"]
+atlas = ExtResource("3_dewec")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ee3"]
+atlas = ExtResource("3_dewec")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhhdu"]
+atlas = ExtResource("3_dewec")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52ee3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ixxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn08x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_megsn")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gntrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dewec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52ee3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhhdu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2137524130]
 script = ExtResource("1_kyqiw")
 WALLJUMP_VEL = 50.0
 dash_curve = SubResource("Curve_kyqiw")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1739747761]
-texture = ExtResource("2_kyqiw")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1657856047]
-position = Vector2(0.5, 0)
+position = Vector2(-4, 1.5)
 shape = SubResource("RectangleShape2D_kpjcp")
 
 [node name="Weapon" parent="." unique_id=715501605 instance=ExtResource("3_gntrk")]
-position = Vector2(54, -1.1444092e-05)
+position = Vector2(10, 10.000005)
 rotation = -0.5370195
 scale = Vector2(0.515, 0.5149991)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1871850564]
+position = Vector2(-5.75, 0.25)
+scale = Vector2(2.234375, 2.234375)
+sprite_frames = SubResource("SpriteFrames_52ee3")
+animation = &"jump"
+autoplay = "idle"
