@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://o0504oq5tnj2" path="res://Art/Player_placeholderpng.png" id="1_hghv2"]
 [ext_resource type="Script" uid="uid://dtryl30eq5cca" path="res://Scripts/Hurtbox.gd" id="2_1f0kj"]
 [ext_resource type="PackedScene" uid="uid://db6splqr54gl6" path="res://Scenes/death_explosion.tscn" id="4_287tu"]
+[ext_resource type="PackedScene" uid="uid://dy7kndof1pir2" path="res://Scenes/enemy_weapon.tscn" id="4_0830c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afpow"]
 size = Vector2(84, 72)
@@ -25,6 +26,10 @@ metadata/_custom_type_script = "uid://dtryl30eq5cca"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hurtbox" unique_id=1070321849]
 shape = SubResource("RectangleShape2D_afpow")
+
+[node name="Enemy_weapon" parent="Sprite2D" unique_id=715501605 instance=ExtResource("4_0830c")]
+position = Vector2(22, 23)
+scale = Vector2(0.9658274, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=34719397]
 position = Vector2(0, -0.5)

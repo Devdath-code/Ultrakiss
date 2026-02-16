@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dy7kndof1pir2"]
+
+[ext_resource type="Texture2D" uid="uid://dxmnh3r123npk" path="res://Art/spritesheet.png" id="1_k6qqw"]
+[ext_resource type="Script" uid="uid://gtmswdxga2ua" path="res://Scripts/Hitbox.gd" id="2_lg1pf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1ly8"]
+atlas = ExtResource("1_k6qqw")
+region = Rect2(138, 64, 12, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qv81b"]
+size = Vector2(8.260862, 29.547005)
+
+[node name="Enemy_weapon" type="Node2D" unique_id=715501605]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=475319239]
+position = Vector2(46.186516, -5.1652966)
+rotation = -1.5707964
+scale = Vector2(3.058664, 3.2068226)
+texture = SubResource("AtlasTexture_e1ly8")
+
+[node name="Hitbox" type="Area2D" parent="Sprite2D" unique_id=1327303765]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_lg1pf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hitbox" unique_id=1509743805]
+position = Vector2(0.25328064, 0.9849043)
+scale = Vector2(1.000001, 1.000001)
+shape = SubResource("RectangleShape2D_qv81b")
+
+[connection signal="body_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_body_entered"]

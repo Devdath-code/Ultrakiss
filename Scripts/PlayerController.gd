@@ -20,6 +20,7 @@ var dash_timer = 0
 @onready var animation_player := $AnimatedSprite2D/AnimationPlayer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var weapon_pivot: Node2D = $Weapon_pivot
+@onready var health = 100
 
 
 func _physics_process(delta: float) -> void:
@@ -92,3 +93,10 @@ func hitting():
 	if Input.is_action_just_pressed("Player_light_attack"):
 		animation_player.play("hit")
 		print("light attack")
+		
+func take_damage(amount:int) -> void:
+	print("Damage:",amount)
+	health = health - amount
+	if health <= 0:
+		print("Game over")
+		queue_free()
