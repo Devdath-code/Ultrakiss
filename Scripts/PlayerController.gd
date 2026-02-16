@@ -20,7 +20,7 @@ var dash_timer = 0
 @onready var animation_player := $AnimatedSprite2D/AnimationPlayer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var weapon_pivot: Node2D = $Weapon_pivot
-@onready var health = 120
+@onready var health = 320
 
 
 func _physics_process(delta: float) -> void:

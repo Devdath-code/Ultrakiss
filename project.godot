@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="UltraKiss"
-run/main_scene="uid://vx7aabxx7wyy"
+run/main_scene="uid://bwp1a6meuj1sp"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -64,4 +64,5 @@ Player_parry={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
