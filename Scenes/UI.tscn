@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bpc0766eleccl"]
+
+[ext_resource type="Texture2D" uid="uid://di2mya58rbwxy" path="res://Art/uiart/ui.png" id="1_w371h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxvpl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dewlx"]
+atlas = ExtResource("1_w371h")
+region = Rect2(0, 0, 1022, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfhsn"]
+atlas = ExtResource("1_w371h")
+region = Rect2(1016, 8, 968, 992)
+
+[node name="Ui" type="Control" unique_id=1813653275]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1733199734]
+modulate = Color(0.9999953, 0.47092807, 0.40530074, 1)
+z_index = 5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -115.0
+offset_right = 20.0
+offset_bottom = -45.0
+grow_vertical = 2
+scale = Vector2(20, 1)
+pivot_offset = Vector2(20, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_nxvpl")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1306964774]
+z_index = 6
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -575.0
+offset_top = -334.0
+offset_right = -234.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_dewlx")
+expand_mode = 1
+flip_h = true
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=842520157]
+z_index = 6
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 235.0
+offset_top = -344.0
+offset_right = 576.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_hfhsn")
+expand_mode = 1
