@@ -4,6 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://ctvf1i6csqrs1" path="res://Art/placeholder.png" id="2_y0mvb"]
 [ext_resource type="PackedScene" uid="uid://dgwfvvn3yre0d" path="res://Scenes/enemy.tscn" id="3_y0mvb"]
 
+[sub_resource type="Environment" id="Environment_y0mvb"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.47
+glow_strength = 1.27
+glow_bloom = 0.42
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d7bho"]
 texture = ExtResource("2_y0mvb")
 0:0/0 = 0
@@ -427,6 +434,9 @@ sources/0 = SubResource("TileSetAtlasSource_d7bho")
 
 [node name="sandbox" type="Node2D" unique_id=876731195]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1980024302]
+environment = SubResource("Environment_y0mvb")
+
 [node name="TileMap" type="TileMap" parent="." unique_id=343817526]
 tile_set = SubResource("TileSet_2b6ht")
 format = 2
@@ -444,8 +454,8 @@ limit_enabled = false
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="Enemy" parent="." unique_id=264314452 instance=ExtResource("3_y0mvb")]
-position = Vector2(979, -37)
-
-[node name="Enemy2" parent="." unique_id=1823750943 instance=ExtResource("3_y0mvb")]
-position = Vector2(1182, -37)
+[node name="Enemy" parent="." unique_id=264314452 node_paths=PackedStringArray("target") instance=ExtResource("3_y0mvb")]
+position = Vector2(1885, -54)
+scale = Vector2(0.57768166, 0.53161836)
+target = NodePath("../CharacterBody2D")
+speed = 100

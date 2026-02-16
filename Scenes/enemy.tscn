@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b51hqgflaymss" path="res://Scripts/enemy.gd" id="1_afpow"]
 [ext_resource type="Texture2D" uid="uid://o0504oq5tnj2" path="res://Art/Player_placeholderpng.png" id="1_hghv2"]
 [ext_resource type="Script" uid="uid://dtryl30eq5cca" path="res://Scripts/Hurtbox.gd" id="2_1f0kj"]
+[ext_resource type="PackedScene" uid="uid://db6splqr54gl6" path="res://Scenes/death_explosion.tscn" id="4_287tu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afpow"]
 size = Vector2(84, 72)
@@ -28,3 +29,6 @@ shape = SubResource("RectangleShape2D_afpow")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=34719397]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_287tu")
+
+[node name="Death_explosion" parent="." unique_id=1494092447 instance=ExtResource("4_287tu")]
+position = Vector2(-1, -2)

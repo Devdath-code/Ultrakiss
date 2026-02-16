@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://osjosay8knkv"]
+
+[sub_resource type="Curve" id="Curve_nlb0y"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9254658, 0.105145454), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="explosion" type="CPUParticles2D" unique_id=118469940]
+rotation = -1.5086509
+emitting = false
+amount = 60
+one_shot = true
+preprocess = 1.6099999999999999
+explosiveness = 1.0
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_curve = SubResource("Curve_nlb0y")
