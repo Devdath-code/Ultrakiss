@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="UltraKiss"
-run/main_scene="uid://6mphc7kwhmqq"
+run/main_scene="uid://bwp1a6meuj1sp"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

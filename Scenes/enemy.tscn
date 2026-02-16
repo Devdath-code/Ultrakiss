@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dgwfvvn3yre0d"]
+
+[ext_resource type="Script" uid="uid://b51hqgflaymss" path="res://Scripts/enemy.gd" id="1_afpow"]
+[ext_resource type="Texture2D" uid="uid://o0504oq5tnj2" path="res://Art/Player_placeholderpng.png" id="1_hghv2"]
+[ext_resource type="Script" uid="uid://dtryl30eq5cca" path="res://Scripts/Hurtbox.gd" id="2_1f0kj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afpow"]
+size = Vector2(84, 72)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=264314452]
+script = ExtResource("1_afpow")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=142789520]
+modulate = Color(0.9498957, 0.003072932, 0.001686694, 1)
+texture = ExtResource("1_hghv2")
+
+[node name="Hurtbox" type="Area2D" parent="Sprite2D" unique_id=1019630164]
+collision_mask = 2
+script = ExtResource("2_1f0kj")
+metadata/_custom_type_script = "uid://dtryl30eq5cca"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hurtbox" unique_id=1070321849]
+shape = SubResource("RectangleShape2D_afpow")
