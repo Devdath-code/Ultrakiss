@@ -8,7 +8,7 @@ atlas = ExtResource("1_qv81b")
 region = Rect2(138, 64, 12, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qv81b"]
-size = Vector2(8.260862, 29.547005)
+size = Vector2(18.96251, 35.237335)
 
 [node name="Weapon" type="Node2D" unique_id=715501605]
 
@@ -24,7 +24,7 @@ collision_mask = 0
 script = ExtResource("2_qv81b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hitbox" unique_id=1509743805]
-position = Vector2(0.25328064, 0.9849043)
+position = Vector2(-0.3809836, 0.40959167)
 scale = Vector2(1.000001, 1.000001)
 shape = SubResource("RectangleShape2D_qv81b")
 

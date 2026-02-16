@@ -6,7 +6,7 @@ func init()->void:
 	collision_mask = 3
 
 
-func _ready() -> void:
+func _ready() -> void: 
 	area_entered.connect(_on_area_entered)
 	
 func _on_area_entered(hitbox:Hitbox) -> void:

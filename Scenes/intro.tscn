@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://vx7aabxx7wyy"]
+
+[ext_resource type="Texture2D" uid="uid://3ocusg88hs7w" path="res://Art/uiart/strt.png" id="1_b226h"]
+[ext_resource type="Script" uid="uid://dhnoqp0rl0ot6" path="res://Scenes/start.gd" id="2_duh1u"]
+
+[node name="Intro" type="Control" unique_id=198286958]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1733074807]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=728719815]
+offset_right = 1152.0
+offset_bottom = 649.0
+texture = ExtResource("1_b226h")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=258865290]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=669695978]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 400.0
+offset_right = 619.0
+offset_bottom = 432.0
+text = "START"
+script = ExtResource("2_duh1u")
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="CanvasLayer/Control/Button" method="_on_pressed"]
